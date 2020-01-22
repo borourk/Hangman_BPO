@@ -58,7 +58,7 @@ import java.util.ArrayList;
 	public void playGame() throws IOException{
 		int guesses = 5;
 		ArrayList<Character> word = new ArrayList<Character>();
-		for(int j = 0; j < currentWord.length(); j++)
+		for(int i = 0; i < currentWord.length(); i++)
 			word.add('_');
 		Scanner scan = new Scanner(System.in);
 		System.out.println("Would you like to play hangman Y/N?");
@@ -91,9 +91,9 @@ import java.util.ArrayList;
 				else{
 					char guess = guessWord.charAt(0);
 					int g = 0;
-					for(int k = 0; k < currentWord.length(); k++) {
-						if (guess == currentWord.charAt(k)) {
-							word.set(k, guess);
+					for(int i = 0; i < currentWord.length(); i++) {
+						if (guess == currentWord.charAt(i)) {
+							word.set(i, guess);
 							g++;
 						}
 					}
@@ -116,7 +116,7 @@ import java.util.ArrayList;
 						chr = scan.next().charAt(0);
 						currentWord = dt.chooseWord();
 						word.clear();
-						for(int l = 0; l < currentWord.length(); l++)
+						for(int i = 0; i < currentWord.length(); i++)
 						word.add('_');
 						guesses = 5;
 					}
@@ -132,7 +132,7 @@ import java.util.ArrayList;
 				chr = scan.next().charAt(0);
 				currentWord = dt.chooseWord();
 				word.clear();
-				for(int l = 0; l < currentWord.length(); l++)
+				for(int i = 0; i < currentWord.length(); i++)
 					word.add('_');
 				guesses = 5;
 			}
