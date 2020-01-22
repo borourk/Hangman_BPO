@@ -45,10 +45,10 @@ import java.util.ArrayList;
 		Scanner fileScan = new Scanner(new File("Hangman.txt"));
 		int win = fileScan.nextInt();
 		int loss = fileScan.nextInt();
-		int totalWin = win + W;
-		int totalLoss = loss + L;
+		int tWin = win + W;
+		int tLoss = loss + L;
 		FileWriter wr = new FileWriter("Hangman.txt", false);
-		wr.write(" " + totalWin + " " + totalLoss);
+		wr.write(" " + tWin + " " + tLoss);
 		wr.close();
 	}//end writeWL
 	/**
@@ -61,26 +61,26 @@ import java.util.ArrayList;
 		for(int j = 0; j < currentWord.length(); j++)
 			word.add('_');
 		Scanner scan = new Scanner(System.in);
-		System.out.println("\tWould You Like to Play Hangman Y/N?");
+		System.out.println("Would you like to play hangman Y/N?");
 		char chr = scan.next().charAt(0);
 		while(chr == 'Y' || chr == 'y'){ //Loop for the game
 			W = 0;
 			L = 0;
-			System.out.println("\nYou have " + guesses + " incorrect guesses left.");{
+			System.out.println("You only have " + guesses + " wrong guesses left.");{
 			if (guesses > 0)
 				for(int i = 0; i < word.size(); i++){
 					System.out.print(word.get(i) + " ");
 				}
-				System.out.print("\nWhat is your guess? ");
+				System.out.print("What's your guess? ");
 				String guessWord = scan.next();
 				if (guessWord.equals(currentWord)){
 				rdWins++;
 				W++;
-				System.out.println("\nYou guessed the correct word! You won!");
-				System.out.println("You have won " + rdWins + " times this round. You have lost " + rdLosses + " times this round.");
+				System.out.println("You've guessed the correct word! You've won!");
+				System.out.println("You have " + rdWins + " wins and " + rdLosses + " losses this round.");
 				writeWL();
 				loadWL();
-				System.out.println("\n\tWould You Like to Play Again? Y/N?");
+				System.out.println("Would you like to play again? Y/N?");
 				chr = scan.next().charAt(0);
 				currentWord = dt.chooseWord();
 				word.clear();
@@ -108,11 +108,11 @@ import java.util.ArrayList;
 						System.out.println("\n" + currentWord);
 						rdWins++;
 						W++;
-						System.out.println("\nYou won!");
+						System.out.println("You've won!");
 						System.out.println("You have won " + rdWins + " times this round. You have lost " + rdLosses + " times this round.");
 						writeWL();
 						loadWL();
-						System.out.println("\n\tWould You Like to Play Again? Y/N?");
+						System.out.println("Would you like to play again? Y/N?");
 						chr = scan.next().charAt(0);
 						currentWord = dt.chooseWord();
 						word.clear();
@@ -122,21 +122,19 @@ import java.util.ArrayList;
 					}
 				}
 			}
-			else {
 				rdLosses++;
 				L++;
-				System.out.println("\nYou are out of guesses. You lost.\nThe word was " + currentWord);
-				System.out.println("You have won " + rdWins + " times this round. You have lost " + rdLosses + " times this round.");
+				System.out.println("You're out of guesses. You've lost.\nThe word was " + currentWord);
+				System.out.println("You have" + rdWins + " wins and " + rdLosses + " losses this round.");
 				writeWL();
 				loadWL();
-				System.out.println("\n\tWould You Like to Play Again? Y/N?");
+				System.out.println("Would you like to play again? Y/N?");
 				chr = scan.next().charAt(0);
 				currentWord = dt.chooseWord();
 				word.clear();
 				for(int l = 0; l < currentWord.length(); l++)
 					word.add('_');
 				guesses = 5;
-				}
 			}
 			if(chr != 'Y' || chr != 'y'){
 				System.out.println("\n\t<<END>>");

@@ -5,7 +5,7 @@ import java.util.*;
 
 public class Dictionary {
 	
-	private String[] wordList = new String[212];
+	private String[] wordList = new String[213];
 	private SecureRandom randomNumbers;
 	
 	public Dictionary() throws IOException {
@@ -13,12 +13,13 @@ public class Dictionary {
 	}//end first constructor
 	private void readFile() throws IOException {
 		Scanner fileScan = new Scanner(new File("Hangman.txt"));
-		for(int i = 0; i < 212; i++) {
+		for(int i = 0; i < 213; i++) {
 			wordList[i] = fileScan.next();
 		}
 	}//end readFile
 	public String chooseWord() throws IOException{
 		int randomNumber;
+		return toString();
 	}//end chooseWord
 	
 }//end class
